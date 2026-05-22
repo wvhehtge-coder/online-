@@ -60,51 +60,43 @@
             font-weight: 700;
         }
 
-        /* โซนปุ่มกดอ่านด้วยเสียง */
-        .audio-control-panel {
+        /* โซนปุ่มกดติดต่อผ่าน Instagram */
+        .instagram-control-panel {
             background: #1b1635;
-            border: 1px solid var(--blue-law);
+            border: 1px solid #e1306c;
             border-radius: 12px;
-            padding: 15px;
+            padding: 20px;
             margin-bottom: 25px;
             text-align: center;
-            box-shadow: 0 0 15px rgba(0, 229, 255, 0.1);
+            box-shadow: 0 0 15px rgba(225, 48, 108, 0.15);
         }
 
-        .audio-control-panel p {
-            font-size: 0.9rem;
-            margin-bottom: 10px;
+        .instagram-control-panel p {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
             color: #fff;
             font-family: 'Mitr', sans-serif;
+            line-height: 1.5;
         }
 
-        .btn-audio {
-            background: linear-gradient(135deg, #00d2ff 0%, #0076ff 100%);
-            border: none;
+        .btn-instagram {
+            display: inline-block;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
             color: white;
-            padding: 10px 20px;
-            font-size: 0.95rem;
+            padding: 12px 30px;
+            font-size: 1rem;
             font-family: 'Mitr', sans-serif;
             font-weight: 600;
             border-radius: 30px;
-            cursor: pointer;
-            margin: 5px;
+            text-decoration: none;
             transition: all 0.2s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(225, 48, 108, 0.4);
         }
 
-        .btn-audio:hover {
+        .btn-instagram:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0, 229, 255, 0.4);
-        }
-
-        .btn-audio.stop {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ff3333 100%);
-        }
-
-        .btn-audio.pause {
-            background: linear-gradient(135deg, #f3ca40 0%, #d4af37 100%);
-            color: #110e22;
+            box-shadow: 0 6px 20px rgba(225, 48, 108, 0.6);
+            opacity: 0.95;
         }
 
         .explanation-banner {
@@ -261,11 +253,9 @@
         <div class="subtitle">พื้นที่หยุดยั้งความรุนแรงไซเบอร์ สะท้อนจิตวิทยาและอนาคตของครอบครัว</div>
     </header>
 
-    <div class="audio-control-panel">
-        <p>🔊 ระบบช่วยอ่านเนื้อหาด้วยเสียงอัตโนมัติ (Google TTS)</p>
-        <button class="btn-audio" id="btn-play" onclick="speakText()">▶️ กดฟังเสียงอ่าน</button>
-        <button class="btn-audio pause" id="btn-pause" onclick="pauseText()">⏸️ พักเสียง</button>
-        <button class="btn-audio stop" id="btn-stop" onclick="stopText()">⏹️ หยุด/เริ่มใหม่</button>
+    <div class="instagram-control-panel">
+        <p>💬 ถ้าคุณไม่อยากแฉใคร หรือว่าไม่สบายใจ ติดต่อเราได้เลย พวกเราเป็นวัยรุ่นด้วยกัน เคยเจอเรื่องแบบนี้มาก่อน พร้อมรับฟังและช่วยหาทางออกร่วมกันอย่างปลอดภัย</p>
+        <a href="https://www.instagram.com/no.more.doxing?igsh=ZWxqNHgyc2x4bWd2" target="_blank" class="btn-instagram">📸 ติดต่อเราทาง Instagram</a>
     </div>
 
     <div class="explanation-banner">
@@ -286,7 +276,7 @@
         <div class="section-title">บทที่ 1: วงเวียนที่มองไม่เห็น จาก "ความสะใจ" สู่ "สายเลือด"</div>
         
         <p class="essay">
-            ในโลกออนไลน์ปัจจุบันวัฒนธรรมการล่าแม่มดการขุดคุ้ยประวัติและการแฉพฤติกรรมผิดพลาดของผู้อื่นกลายเป็นเรื่องปกติสามัญที่เราพบเห็นได้ในทุกแพลตฟอร์มหลายคนมักจะสร้างความชอบธรรมให้ตนเองโดยการอ้างว่าทำไปเพื่อความยุติธรรมทำไปเพราะต้องการเรียกร้องความเป็นธรรมให้สังคมหรือเพื่อสั่งสอนคนผิดในความเป็นจริงแล้วลึกลงไปในทางจิตวิทยาสิ่งที่ขับเคลื่อนพฤติกรรมเหล่านี้บ่อยครั้งคือ<strong>"ความสะใจชั่วครู่ชั่วยาม"</strong>และความต้องการรู้สึกว่าตนเองมีอำนาจเหนือผู้อื่นโดยลืมคิดไปว่าข้อมูลทุกอย่างที่ถูกโยนลงบนโลกอินเทอร์เน็ตมันคือระเบิดเวลาดิจิทัลที่จะคงอยู่ไปตลอดกาลและไม่มีวันลบเลือน
+            ในโลกออนไลน์ปัจจุบันวัฒนธรรมการล่าแม่มดการขุดคุ้ยประวัติและการแฉพฤติกรรมผิดพลาดของผู้อื่นกลายเป็นเรื่องปกติสามัญที่เราพบเห็นได้ในทุกแพลตฟอร์มหลายคนมักจะสร้างความชอบธรรมให้ตนเองโดยการอ้างว่าทำไปเพื่อความยุติธรรมทำไปเพราะต้องการเรียกร้องความเป็นธรรมให้สังคมหรือเพื่อสั่งสอนคนผิดในความเป็นจริงแล้วลึกลงไปในทางจิตวิทยาสิ่งที่ขับเคลื่อนพฤทีพฤติกรรมเหล่านี้บ่อยครั้งคือ<strong>"ความสะใจชั่วครู่ชั่วยาม"</strong>และความต้องการรู้สึกว่าตนเองมีอำนาจเหนือผู้อื่นโดยลืมคิดไปว่าข้อมูลทุกอย่างที่ถูกโยนลงบนโลกอินเทอร์เน็ตมันคือระเบิดเวลาดิจิทัลที่จะคงอยู่ไปตลอดกาลและไม่มีวันลบเลือน
         </p>
 
         <p class="essay">
@@ -329,7 +319,7 @@
         <div class="section-title">บทที่ 3: ทางออกที่แท้จริงเพื่อให้สังคมดีขึ้น</div>
         
         <p class="essay">
-            คำว่า<strong>"ถ้าเกิดไม่แฉสังคมจะดีขึ้น"</strong>ไม่ได้หมายความว่าเรายอมจำนนต่อความชั่วร้ายหรือปล่อยให้คนกระทำความผิดลอยนวลอยู่ในสังคมแต่หมายถึงการที่เราเลือกที่จะไม่ใช้"ศาลเตี้ยออนไลน์"หรือกระบวนการพิพากษาโดยมติมหาชนในการทำลายล้างชีวิตของกันและกันเพราะในเชิงพฤติกรรมศาสตร์การแฉไม่ได้ทำให้คนสำนึกผิดอย่างแท้จริงแต่มันทำให้เกิดความอับอายอย่างรุนแรงซึ่งมักจะเปลี่ยนเป็นความเคียดแค้นและความแค้นนั้นก็จะส่งผลให้เกิดการแก้แค้นกลับไปกลับมาเป็นวงจรที่ไม่มีวันจบสิ้นและรุนแรงขึ้นเรื่อยๆ<strong>มันไม่ใช่เรื่องที่จะมาตัดเพื่อนหรือแฉกันเพียงเพราะความโกรธแค้นชั่วคราวการทำแบบนั้นจะยิ่งสร้างความผิดที่หนักหนากว่าเดิม</strong>
+            คำว่า<strong>"ถ้าเกิดไม่แฉสังคมจะดีขึ้น"</strong>ไม่ได้หมายความว่าเรายอมจำนนต่อความชั่วร้ายหรือปล่อยให้คนกระทำความผิดลอยนวลอยู่ในสังคมแต่หมายถึงการที่เราเลือกที่จะไม่ใช้"ศาลเตี้ยออนไลน์"หรือกระบวนการพิพากษาโดยมติมหาชนในการทำลายล้างชีวิตของกันและกันเพราะในเชิงพฤติกรรมศาสตร์การแฉไม่ได้ทำให้คนสำนึกผิดอย่างแท้จริงแต่มันทำให้เกิดความอับอายอย่างรุนแรงซึ่งมักจะเปลี่ยนเป็นความเคียดแค้นและความแค้นนั้นก็จะส่งผลให้เกิดการแก้แค้นกลับไปกลับมาเป็นวงจรที่ไม่มีวันจบสิ้นและรุนแรงขึ้นเรื่อยๆ<strong>มันไม่ใช่เรื่องที่จะมาตัดเพื่อนหรือแฉกันเพียงเพราะความโกรธแค้นชั่วคราวการทำแบบนั้นจะยิ่งสร้างความผิดที่หนักหนากกว่าเดิม</strong>
         </p>
 
         <p class="essay">
@@ -347,82 +337,6 @@
         ร่วมสร้างสังคมออนไลน์ที่สร้างสรรค์ ปลอดภัย และไร้ความรุนแรง
     </footer>
 </div>
-
-<script>
-    let synth = window.speechSynthesis;
-    let utterance = null;
-    let isPaused = false;
-
-    function speakText() {
-        // ถ้ากำลัง Pause อยู่ให้กดเล่นต่อได้เลย
-        if (synth.speaking && isPaused) {
-            synth.resume();
-            isPaused = false;
-            document.getElementById('btn-play').innerText = "▶️ กำลังอ่าน...";
-            return;
-        }
-
-        // ถ้ากำลังพูดอยู่แล้วกดซ้ำ ให้ข้ามไป
-        if (synth.speaking) return;
-
-        // รวบรวมข้อความทั้งหมดในเพจมาประมวลผลคำอ่าน
-        let textToSpeak = "หัวข้อเว็บไซต์: ถ้าเกิดไม่แฉสังคมจะดีขึ้น พื้นที่หยุดยั้งความรุนแรงไซเบอร์ สะท้อนจิตวิทยาและอนาคตของครอบครัว ";
-        textToSpeak += document.getElementById('t1').innerText + " ";
-        
-        let paragraphs = document.querySelectorAll('#main-content .section-title, #main-content .essay, #main-content .highlight-box li');
-        paragraphs.forEach(p => {
-            textToSpeak += p.innerText + " ";
-        });
-
-        utterance = new SpeechSynthesisUtterance(textToSpeak);
-        
-        // ฟังก์ชันค้นหาและดึงเสียง Google ภาษาไทยมาใช้งาน
-        let voices = synth.getVoices();
-        let thaiVoice = voices.find(voice => voice.lang === 'th-TH' && voice.name.includes('Google'));
-        
-        // ถ้าหาเสียงกูเกิลตรงๆ ไม่เจอ ให้เลือกเสียงภาษาไทยมาตรฐานแทน
-        if (!thaiVoice) {
-            thaiVoice = voices.find(voice => voice.lang === 'th-TH');
-        }
-
-        if (thaiVoice) {
-            utterance.voice = thaiVoice;
-        }
-
-        // ปรับตั้งค่าความเร็วและโทนเสียงให้ฟังง่าย
-        utterance.rate = 1.0; 
-        utterance.pitch = 1.0;
-
-        utterance.onend = function() {
-            document.getElementById('btn-play').innerText = "▶️ กดฟังเสียงอ่าน";
-            isPaused = false;
-        };
-
-        document.getElementById('btn-play').innerText = "▶️ กำลังอ่าน...";
-        synth.speak(utterance);
-    }
-
-    function pauseText() {
-        if (synth.speaking && !isPaused) {
-            synth.pause();
-            isPaused = true;
-            document.getElementById('btn-play').innerText = "▶️ กดเพื่อฟังต่อ";
-        }
-    }
-
-    function stopText() {
-        if (synth.speaking || isPaused) {
-            synth.cancel();
-            isPaused = false;
-            document.getElementById('btn-play').innerText = "▶️ กดฟังเสียงอ่าน";
-        }
-    }
-
-    // โหลดรายชื่อเสียงเตรียมไว้สำหรับบราวเซอร์บางตัวที่โหลดช้า
-    if (speechSynthesis.onvoiceschanged !== undefined) {
-        speechSynthesis.onvoiceschanged = synth.getVoices;
-    }
-</script>
 
 </body>
 </html>
