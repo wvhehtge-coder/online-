@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ถ้าเกิดไม่แฉสังคมจะดีขึ้น - หยุดวงเวียนทำลายชีวิต</title>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Mitr:wght@400;600&family=Sarabun:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0b0813;
+            --panel-bg: #141122;
+            --text-main: #e2daf8;
+            --text-muted: #8c81ad;
+            --red-alert: #ff3333;
+            --gold-warn: #ffd700;
+            --blue-law: #00e5ff;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            word-spacing: -0.5px;
+            letter-spacing: -0.1px;
+        }
+
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px 10px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 20px;
+        }
+
+        header h1 {
+            font-family: 'Mitr', sans-serif;
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        header .subtitle {
+            font-size: 0.95rem;
+            color: var(--gold-warn);
+            font-weight: 700;
+        }
+
+        /* โซนปุ่มกดอ่านด้วยเสียง */
+        .audio-control-panel {
+            background: #1b1635;
+            border: 1px solid var(--blue-law);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 25px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.1);
+        }
+
+        .audio-control-panel p {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            color: #fff;
+            font-family: 'Mitr', sans-serif;
+        }
+
+        .btn-audio {
+            background: linear-gradient(135deg, #00d2ff 0%, #0076ff 100%);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 0.95rem;
+            font-family: 'Mitr', sans-serif;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            margin: 5px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .btn-audio:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 229, 255, 0.4);
+        }
+
+        .btn-audio.stop {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff3333 100%);
+        }
+
+        .btn-audio.pause {
+            background: linear-gradient(135deg, #f3ca40 0%, #d4af37 100%);
+            color: #110e22;
+        }
+
+        .explanation-banner {
+            background: linear-gradient(135deg, #1d1836 0%, #110e22 100%);
+            border-left: 4px solid var(--blue-law);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(0, 229, 255, 0.2);
+        }
+
+        .explanation-banner h3 {
+            font-family: 'Mitr', sans-serif;
+            color: var(--blue-law);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .explanation-banner p {
+            font-size: 0.85rem;
+            color: #bfaee3;
+            text-align: justify;
+        }
+
+        .cyber-banner {
+            background: linear-gradient(90deg, #3a0e1c 0%, #1a050d 100%);
+            border-left: 4px solid var(--gold-warn);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .cyber-info h2 {
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        .cyber-info p {
+            font-size: 0.8rem;
+            color: #ffecc2;
+        }
+
+        .cyber-phone {
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold-warn);
+            text-align: center;
+            background: rgba(0,0,0,0.4);
+            padding: 5px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .content-card {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-family: 'Mitr', sans-serif;
+            font-size: 1.3rem;
+            color: #ffffff;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid rgba(255,255,255,0.05);
+            padding-bottom: 5px;
+        }
+        .section-title:first-of-type { margin-top: 0; }
+
+        p.essay {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            text-align: justify;
+            color: #e2daf8;
+            line-height: 1.5;
+        }
+
+        p.essay strong {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .highlight-box {
+            background: rgba(0, 229, 255, 0.03);
+            border: 1px dashed var(--blue-law);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .highlight-box h4 {
+            font-family: 'Mitr', sans-serif;
+            color: var(--blue-law);
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .highlight-box ul {
+            list-style-type: none;
+        }
+
+        .highlight-box li {
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            color: #c0f1fc;
+            line-height: 1.4;
+        }
+
+        .highlight-box li::before {
+            content: '⚖️';
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            line-height: 1.4;
+        }
+
+        @media (min-width: 600px) {
+            body { padding: 40px 20px; }
+            header h1 { font-size: 2.3rem; }
+            .cyber-banner { flex-direction: row; align-items: center; justify-content: space-between; }
+            .cyber-phone { padding: 5px 20px; }
+            .content-card { padding: 35px; }
+            .section-title { font-size: 1.5rem; }
+            p.essay { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>ถ้าเกิดไม่แฉสังคมจะดีขึ้น</h1>
+        <div class="subtitle">พื้นที่หยุดยั้งความรุนแรงไซเบอร์ สะท้อนจิตวิทยาและอนาคตของครอบครัว</div>
+    </header>
+
+    <div class="audio-control-panel">
+        <p>🔊 ระบบช่วยอ่านเนื้อหาด้วยเสียงอัตโนมัติ (Google TTS)</p>
+        <button class="btn-audio" id="btn-play" onclick="speakText()">▶️ กดฟังเสียงอ่าน</button>
+        <button class="btn-audio pause" id="btn-pause" onclick="pauseText()">⏸️ พักเสียง</button>
+        <button class="btn-audio stop" id="btn-stop" onclick="stopText()">⏹️ หยุด/เริ่มใหม่</button>
+    </div>
+
+    <div class="explanation-banner">
+        <h3>💡 เกี่ยวกับเว็บไซต์นี้ (สาระสำคัญที่ผู้ใช้งานต้องเข้าใจ)</h3>
+        <p id="t1">เว็บไซต์นี้คือสื่อสร้างสรรค์เชิงจิตวิทยาและกฎหมายไซเบอร์มีวัตถุประสงค์เพื่อเตือนสติกลุ่มวัยรุ่นสังคมออนไลน์โดยเฉพาะกลุ่มผู้ใช้งานแอปพลิเคชันอย่างDiscord,Telegramและกลุ่มแชทลับต่างๆที่กำลังหลงผิดใช้"ศาลเตี้ยออนไลน์"ในการแฉประจานหรือขุดคุ้ยประวัติผู้อื่นเว็บนี้สร้างขึ้นเพื่ออธิบายให้เห็นว่าการด่าทอหรือทะเลาะกันเป็นเรื่องธรรมดาของมนุษย์แต่การเลือกวิธี"แฉ"เพื่อทำลายชีวิตเพื่อนมันไม่ใช่ทางออกและนำมาซึ่งความผิดทางกฎหมายที่ร้ายแรงกว่าเดิม</p>
+    </div>
+
+    <div class="cyber-banner">
+        <div class="cyber-info">
+            <h2>📢 ช่องทางประสานงานและแจ้งเหตุอาชญากรรมไซเบอร์</h2>
+            <p>หากพบการกระทำความผิดหรือถูกข่มขู่ประจานสามารถติดต่อรับคำแนะนำจากเจ้าหน้าที่</p>
+        </div>
+        <div class="cyber-phone">สายด่วน 1441</div>
+    </div>
+
+    <div class="content-card" id="main-content">
+        
+        <div class="section-title">บทที่ 1: วงเวียนที่มองไม่เห็น จาก "ความสะใจ" สู่ "สายเลือด"</div>
+        
+        <p class="essay">
+            ในโลกออนไลน์ปัจจุบันวัฒนธรรมการล่าแม่มดการขุดคุ้ยประวัติและการแฉพฤติกรรมผิดพลาดของผู้อื่นกลายเป็นเรื่องปกติสามัญที่เราพบเห็นได้ในทุกแพลตฟอร์มหลายคนมักจะสร้างความชอบธรรมให้ตนเองโดยการอ้างว่าทำไปเพื่อความยุติธรรมทำไปเพราะต้องการเรียกร้องความเป็นธรรมให้สังคมหรือเพื่อสั่งสอนคนผิดในความเป็นจริงแล้วลึกลงไปในทางจิตวิทยาสิ่งที่ขับเคลื่อนพฤติกรรมเหล่านี้บ่อยครั้งคือ<strong>"ความสะใจชั่วครู่ชั่วยาม"</strong>และความต้องการรู้สึกว่าตนเองมีอำนาจเหนือผู้อื่นโดยลืมคิดไปว่าข้อมูลทุกอย่างที่ถูกโยนลงบนโลกอินเทอร์เน็ตมันคือระเบิดเวลาดิจิทัลที่จะคงอยู่ไปตลอดกาลและไม่มีวันลบเลือน
+        </p>
+
+        <p class="essay">
+            ลองจินตนาการถึงภาพสะท้อนในอนาคตอันไกลวันที่คุณเติบโตขึ้นผ่านพ้นช่วงวัยรุ่นกลายเป็นผู้ใหญ่มีครอบครัวที่อบอุ่นมีหน้าที่การงานที่มั่นคงและมี<strong>"ลูกหลาน"</strong>ที่คุณรักสุดหัวใจวันหนึ่งลูกของคุณเติบโตขึ้นท่ามกลางสังคมไซเบอร์ที่เต็มไปด้วยความโหดร้ายและวัฒนธรรมการกดขี่แบบเดียวกันนี้แล้ววันนั้นลูกของคุณเกิดก้าวพลาดทำเรื่องที่ผิดพลาดทางศีลธรรมหรือสังคมบางประการซึ่งเป็นสิ่งที่มนุษย์ปุถุชนทั่วไปสามารถเกิดขึ้นได้แต่สังคมในเวลานั้นกลับไม่มีพื้นที่ให้แก้ตัวสังคมรุมประณามอย่างไร้ความปรานีขุดคุ้ยเรื่องราวประจานรุมแฉจนลูกของคุณไม่มีที่ยืนในโรงเรียนไม่มีที่ยืนในสังคมต้องขังตัวเองอยู่ในห้องมืดร้องไห้ด้วยความหวาดกลัวและจบชีวิตลงด้วยภาวะซึมเศร้าจากการถูกกดดัน
+        </p>
+
+        <div class="section-title">บทที่ 1.5: ภาพสะท้อนย้อนกลับ "สมมุษยว่าเป็นพ่อแม่เราล่ะที่โดนแฉ?"</div>
+
+        <p class="essay">
+            เราทุกคนต่างเติบโตขึ้นมีอายุมีวุฒิภาวะและผ่านโลกมามากพอที่จะเข้าใจความซับซ้อนของชีวิตหลายครั้งที่เราสนุกกับการแชร์ข้อมูลขุดประวัติหรือหัวเราะสะใจเมื่อเห็น<strong>"พ่อแม่คนอื่น"</strong>ถูกสังคมรุมประณามและแฉจนไม่มีที่ยืน...แต่เคยลองหยุดคิดและตั้งคำถามกับตัวเองอย่างจริงจังไหมว่า<strong>"ถ้าวันหนึ่งคนที่ถูกแฉยันรากเหง้ายันประวัติส่วนตัวในหน้าฟีดเฟซบุ๊กหรือในกลุ่มเทรนด์ทวิตเตอร์เป็นพ่อแม่แท้ๆของเราเองล่ะ?"</strong>
+        </p>
+
+        <p class="essay">
+            ในทางจิตวิทยาครอบครัวคือ<strong>"พื้นที่ปลอดภัยขั้นสุดท้าย(Final Safe Zone)"</strong>ของมนุษย์เมื่อใดก็ตามที่พ่อแม่เราถูกล่าแม่มดออนไลน์สมองของเราจะเกิดสภาวะบอบช้ำทางจิตใจร่วม(Vicarious Trauma)เราจะรู้สึกราวกับว่าตัวเราเองกำลังถูกกรีดเลือดเนื้อต่อหน้าสาธารณชนคุณจะเห็นพ่อแม่ที่เคยเข้มแข็งต้องนั่งมือสั่นทานข้าวไม่ลงร้องไห้ด้วยความหวาดกลัวต่อสายตาคนภายนอกและไม่กล้าก้าวเท้าออกจากประตูบ้านบรรยากาศในบ้านที่เคยเป็นที่พึ่งจะแปรเปลี่ยนเป็นคุกมืดที่เต็มไปด้วยความซึมเศร้าและความทุกข์ทรมาน
+        </p>
+
+        <p class="essay">
+            การที่เราบอกว่าเราโตแล้วมีความคิดแล้วมันควรสะท้อนออกมาผ่านพฤติกรรมที่รู้จัก<strong>"เอาใจเขามาใส่ใจเรา(Perspective-Taking)"</strong>การแฉประจานไม่ได้ช่วยให้อะไรดีขึ้นเลยไม่ได้ทำให้สังคมน่าอยู่ขึ้นและไม่ได้ทำให้เราดูเป็นคนมีความยุติธรรมมากขึ้นมันเป็นเพียงแค่การส่งต่อสารพิษความเกลียดชังที่จะวันหนึ่งอาจจะหมุนย้อนกลับมาทำลายคนที่เรารักที่สุดการมีวุฒิภาวะที่แท้จริงคือการรู้ว่าสิ่งใดควรปล่อยให้เป็นไปตามกระบวนการที่ถูกต้องและสิ่งใดที่เป็นเพียงการทำลายล้างเพื่อความสะใจอย่างไร้ขอบเขต
+        </p>
+
+        <div class="section-title">บทที่ 2: ความเข้าใจผิดในโลกเสมือน "คิดว่าหลบหลัง Discord แล้วจะรอด"</div>
+        
+        <p class="essay">
+            เยาวชนและผู้ใช้งานอินเทอร์เน็ตจำนวนมากในปัจจุบันมักจะมีความเชื่อที่ผิดและประมาทอย่างยิ่งว่าการสร้างบัญชีอวตาร(Avatar)การไม่ใช้ชื่อจริงรูปจริงหรือการหันไปใช้แอปพลิเคชันอย่าง<strong>Discord,Telegram,หรือกลุ่มแชทลับ</strong>ที่มีเซิร์ฟเวอร์ตั้งอยู่ต่างประเทศจะทำให้พวกเขาสามารถทำอะไรก็ได้ตามใจชอบไม่ว่าจะแฉใครประจานข้อมูลส่วนตัวของผู้อื่น(Doxing)หรือคุกคามทางเพศและทางจิตวิทยาโดยที่กฎหมายในประเทศจะไม่มีวันเอื้อมมือไปถึง...<strong>แต่นั่นคือความคิดที่สิ้นคิดและผิดมหันต์จากความเป็นจริงทางเทคโนโลยี</strong>
+        </p>
+
+        <p class="essay">
+            ในโลกไซเบอร์ปัจจุบันไม่มีคำว่า"นิรนาม"ที่แท้จริงเจ้าหน้าที่ตำรวจไซเบอร์ร่วมมือกับผู้เชี่ยวชาญด้านความมั่นคงปลอดภัยสารสนเทศระดับสากลมีเครื่องมือและกระบวนการในการแกะรอยจาก<strong>Digital Footprint(รอยเท้าดิจิทัล)</strong>ที่ผู้ใช้งานทิ้งไว้เสมอทุกครั้งที่คุณพิมพ์ข้อความส่งรูปภาพหรือกดลิงก์ระบบจะมีการบันทึกข้อมูลทางเทคนิคเช่นหมายเลขIP Address,ประวัติการเชื่อมต่อของISP(ผู้ให้บริการอินเทอร์เน็ต),ข้อมูลเฉพาะของระบบเราเตอร์อินเทอร์เน็ตบ้านหรือแม้กระทั่งMAC Addressของอุปกรณ์ต่อให้คุณจะเปลี่ยนชื่อบัญชีหนีลบเซิร์ฟเวอร์แชททิ้งหรือใช้โปรแกรมพรางตัวอย่างVPNเจ้าหน้าที่ก็สามารถสืบค้นค่อยๆต่อจิ๊กซอว์จนเจอที่อยู่จริงและลากตัวมาดำเนินคดีถึงหน้าประตูบ้านได้ในที่สุดซึ่งมีคดีตัวอย่างการจับกุมกลุ่มแอดมินและสมาชิกในDiscordเกิดขึ้นแล้วมากมาย<strong>โดยเฉพาะกลุ่มเด็กวัยรุ่นอายุ18-19-20ปีที่คิดว่าตนเองปลอดภัยแต่สุดท้ายต้องหมดอนาคตเพราะความรู้เท่าไม่ถึงการณ์</strong>
+        </p>
+
+        <div class="highlight-box">
+            <h4>⚖️ ข้อกฎหมายและหลักความจริงที่คุณต้องรู้ (ต่อให้อยู่บน Discord ก็โดน)</h4>
+            <ul>
+                <li><strong>พ.ร.บ.ว่าด้วยการกระทำความผิดเกี่ยวกับคอมพิวเตอร์:</strong>การนำเข้าข้อมูลคอมพิวเตอร์ที่บิดเบือนหรือปลอมไม่ว่าทั้งหมดหรือบางส่วนหรือข้อมูลคอมพิวเตอร์อันเป็นเท็จโดยประการที่น่าจะเกิดความเสียหายแก่ผู้อื่นหรือประชาชนหรือข้อมูลที่มีลักษณะลามกมีโทษจำคุกสูงสุดไม่เกิน5ปีหรือปรับไม่เกิน100,000บาทหรือทั้งจำทั้งปรับ</li>
+                <li><strong>ความผิดฐานหมิ่นประมาทด้วยการโฆษณา:</strong>การแฉประจานหรือกระจายข่าวสารสื่อสิ่งพิมพ์ภาพวาดภาพระบายสีหรือการกระจายเสียงกระจายภาพเพื่อให้ผู้อื่นเสียชื่อเสียงถูกดูหมิ่นหรือถูกเกลียดชังมีโทษจำคุกสูงสุดไม่เกิน2ปีและปรับสูงสุดไม่เกิน200,000บาท</li>
+                <li><strong>หลักฐานดิจิทัลไม่มีวันตาย:</strong>ทุกๆตัวอักษรข้อความเสียงและรูปภาพที่คุณกดส่งในกลุ่มแชทต่อให้กดลบไปแล้วแต่มันจะถูกบันทึกไว้บนเซิร์ฟเวอร์หลัก(Log Files)และบันทึกในหน้าจอของบุคคลอื่นที่แคปเจอร์เก็บไว้สิ่งเหล่านี้สามารถใช้เป็นหลักฐานมัดตัวในชั้นศาลได้อย่างแน่นหนาและร้อยเปอร์เซ็นต์ไม่สามารถปฏิเสธได้</li>
+            </ul>
+        </div>
+
+        <div class="section-title">บทที่ 3: ทางออกที่แท้จริงเพื่อให้สังคมดีขึ้น</div>
+        
+        <p class="essay">
+            คำว่า<strong>"ถ้าเกิดไม่แฉสังคมจะดีขึ้น"</strong>ไม่ได้หมายความว่าเรายอมจำนนต่อความชั่วร้ายหรือปล่อยให้คนกระทำความผิดลอยนวลอยู่ในสังคมแต่หมายถึงการที่เราเลือกที่จะไม่ใช้"ศาลเตี้ยออนไลน์"หรือกระบวนการพิพากษาโดยมติมหาชนในการทำลายล้างชีวิตของกันและกันเพราะในเชิงพฤติกรรมศาสตร์การแฉไม่ได้ทำให้คนสำนึกผิดอย่างแท้จริงแต่มันทำให้เกิดความอับอายอย่างรุนแรงซึ่งมักจะเปลี่ยนเป็นความเคียดแค้นและความแค้นนั้นก็จะส่งผลให้เกิดการแก้แค้นกลับไปกลับมาเป็นวงจรที่ไม่มีวันจบสิ้นและรุนแรงขึ้นเรื่อยๆ<strong>มันไม่ใช่เรื่องที่จะมาตัดเพื่อนหรือแฉกันเพียงเพราะความโกรธแค้นชั่วคราวการทำแบบนั้นจะยิ่งสร้างความผิดที่หนักหนากว่าเดิม</strong>
+        </p>
+
+        <p class="essay">
+            หากคุณพบเห็นการกระทำความผิดมีหลักฐานการทุจริตการฉ้อโกงหรือการละเมิดสิทธิผู้อื่นสิ่งที่ถูกต้องปลอดภัยและยั่งยืนที่สุดคือการรวบรวมพยานหลักฐานเหล่านั้นส่งให้แก่เจ้าหน้าที่ผู้มีอำนาจตามกฎหมายหรือแจ้งสายด่วนไซเบอร์<strong>1441</strong>เพื่อให้กระบวนการยุติธรรมทำหน้าที่ของมันอย่างถูกต้องตามขั้นตอนวิธีนี้นอกจากจะทำให้คนผิดได้รับการลงโทษอย่างแท้จริงและมีมาตรฐานแล้วยังช่วยปกป้องตัวคุณเองไม่ให้ต้องตกเป็นจำเลยในคดีหมิ่นประมาทและไม่ต้องสร้างตราบาปในใจว่าเป็นส่วนหนึ่งที่ผลักดันให้เพื่อนมนุษย์ต้องจบชีวิตลง
+        </p>
+
+        <p class="essay" style="color: var(--gold-warn); font-weight: 700; text-align: center; font-size: 1.05rem; margin-top: 25px;">
+            "จงหยุดส่งต่อความเกลียดชังและหยุดเป็นศาลเตี้ยตั้งแต่วันนี้เราโตๆกันแล้วอย่าทำตัวเหมือนเด็กน้อยไม่หัดโตร่วมกันสร้างสังคมออนไลน์ที่ปลอดภัยเพื่อตัวเราและคนรอบข้างอย่างแท้จริง"
+        </p>
+
+    </div>
+
+    <footer>
+        PAGE CONCEPT DESIGNED BY SENIOR DEVELOPER SHADOW &copy; 2026<br>
+        ร่วมสร้างสังคมออนไลน์ที่สร้างสรรค์ ปลอดภัย และไร้ความรุนแรง
+    </footer>
+</div>
+
+<script>
+    let synth = window.speechSynthesis;
+    let utterance = null;
+    let isPaused = false;
+
+    function speakText() {
+        // ถ้ากำลัง Pause อยู่ให้กดเล่นต่อได้เลย
+        if (synth.speaking && isPaused) {
+            synth.resume();
+            isPaused = false;
+            document.getElementById('btn-play').innerText = "▶️ กำลังอ่าน...";
+            return;
+        }
+
+        // ถ้ากำลังพูดอยู่แล้วกดซ้ำ ให้ข้ามไป
+        if (synth.speaking) return;
+
+        // รวบรวมข้อความทั้งหมดในเพจมาประมวลผลคำอ่าน
+        let textToSpeak = "หัวข้อเว็บไซต์: ถ้าเกิดไม่แฉสังคมจะดีขึ้น พื้นที่หยุดยั้งความรุนแรงไซเบอร์ สะท้อนจิตวิทยาและอนาคตของครอบครัว ";
+        textToSpeak += document.getElementById('t1').innerText + " ";
+        
+        let paragraphs = document.querySelectorAll('#main-content .section-title, #main-content .essay, #main-content .highlight-box li');
+        paragraphs.forEach(p => {
+            textToSpeak += p.innerText + " ";
+        });
+
+        utterance = new SpeechSynthesisUtterance(textToSpeak);
+        
+        // ฟังก์ชันค้นหาและดึงเสียง Google ภาษาไทยมาใช้งาน
+        let voices = synth.getVoices();
+        let thaiVoice = voices.find(voice => voice.lang === 'th-TH' && voice.name.includes('Google'));
+        
+        // ถ้าหาเสียงกูเกิลตรงๆ ไม่เจอ ให้เลือกเสียงภาษาไทยมาตรฐานแทน
+        if (!thaiVoice) {
+            thaiVoice = voices.find(voice => voice.lang === 'th-TH');
+        }
+
+        if (thaiVoice) {
+            utterance.voice = thaiVoice;
+        }
+
+        // ปรับตั้งค่าความเร็วและโทนเสียงให้ฟังง่าย
+        utterance.rate = 1.0; 
+        utterance.pitch = 1.0;
+
+        utterance.onend = function() {
+            document.getElementById('btn-play').innerText = "▶️ กดฟังเสียงอ่าน";
+            isPaused = false;
+        };
+
+        document.getElementById('btn-play').innerText = "▶️ กำลังอ่าน...";
+        synth.speak(utterance);
+    }
+
+    function pauseText() {
+        if (synth.speaking && !isPaused) {
+            synth.pause();
+            isPaused = true;
+            document.getElementById('btn-play').innerText = "▶️ กดเพื่อฟังต่อ";
+        }
+    }
+
+    function stopText() {
+        if (synth.speaking || isPaused) {
+            synth.cancel();
+            isPaused = false;
+            document.getElementById('btn-play').innerText = "▶️ กดฟังเสียงอ่าน";
+        }
+    }
+
+    // โหลดรายชื่อเสียงเตรียมไว้สำหรับบราวเซอร์บางตัวที่โหลดช้า
+    if (speechSynthesis.onvoiceschanged !== undefined) {
+        speechSynthesis.onvoiceschanged = synth.getVoices;
+    }
+</script>
+
+</body>
+</html>
